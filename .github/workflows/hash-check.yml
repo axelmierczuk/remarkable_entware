@@ -17,11 +17,11 @@ jobs:
       - name: Calculate Hash 
         run: |
           mkdir -p $HASH_LOCATION
+          wget $URL/opkg -O $HASH_LOCATION/opkg
           wget $URL/opkg.conf -O $HASH_LOCATION/opkg.conf
           wget $URL/ld-2.27.so -O $HASH_LOCATION/ld-2.27.so
           wget $URL/libc-2.27.so -O $HASH_LOCATION/libc-2.27.so
           wget $URL/libgcc_s.so.1 -O $HASH_LOCATION/libgcc_s.so.1
-          wget $URL/libpthread-2.27.so -O $HASH_LOCATION/libpthread-2.27.so
           wget $URL/libpthread-2.27.so -O $HASH_LOCATION/libpthread-2.27.so
           cat $HASH_LOCATION/* | md5sum > $GITHUB_WORKSPACE/hash.txt
           git add .
