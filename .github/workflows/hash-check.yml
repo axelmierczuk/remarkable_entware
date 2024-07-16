@@ -7,6 +7,8 @@ jobs:
   build:
     name: Nightly Hash Check
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     env:
       HASH_LOCATION: /tmp/hash
       URL: http://bin.entware.net/armv7sf-k3.2/installer
@@ -23,6 +25,5 @@ jobs:
           wget $URL/libpthread-2.27.so -O $HASH_LOCATION/libpthread-2.27.so
           cat $HASH_LOCATION/* | md5sum > $GITHUB_WORKSPACE/hash.txt
           git add .
-          git commit -m "Updated Hash on $(date +'%Y-%m-%d')"
-          git push
+      - uses: stefanzweifel/git-auto-commit-action@v5
 
