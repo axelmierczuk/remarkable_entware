@@ -10,7 +10,7 @@ jobs:
     permissions:
       contents: write
     env:
-      HASH_LOCATION: /tmp/hash
+      HASH_LOCATION: /tmp/hash_2
       URL: http://bin.entware.net/armv7sf-k3.2/installer
     steps:
       - uses: actions/checkout@v4
